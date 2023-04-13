@@ -4,7 +4,7 @@
             <img src="{{ asset('backend/assets/images/user.png') }}" class="rounded-circle user-photo" alt="User Profile Picture">
             <div class="dropdown">
                 <span>Welcome,</span>
-                <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Pro. William</strong></a>
+                <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>{{ Auth::user()->name }}</strong></a>
                 <ul class="dropdown-menu dropdown-menu-right account">
                     <li><a href="professors-profile.html"><i class="icon-user"></i>My Profile</a></li>
                     <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
@@ -21,23 +21,24 @@
             <div class="tab-pane active" id="admin">
                 <nav class="sidebar-nav">
                     <ul class="main-menu metismenu">
-                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-control-pause"></i><span>Departments</span> </a>
+                        <li class="active"><a href="{{ route('admin') }}"><i class="icon-home"></i><span>Dashboard</span></a></li>
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-control-pause"></i><span>Banner</span> </a>
                             <ul>
-                                <li><a href="departments.html">All Departments</a></li>
-                                <li><a href="add-departments.html">Add Departments</a></li>
+                                <li><a href="{{ route('banner.index') }}">All Banner</a></li>
+                                <li><a href="{{ route('banner.create') }}">Add Banner</a></li>
                             </ul>
                         </li>
-                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-graduation"></i><span>Courses</span> </a>
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-graduation"></i><span>News</span> </a>
                             <ul>
-                                <li><a href="courses.html">All Courses</a></li>
-                                <li><a href="add-courses.html">Add Courses</a></li>
-                                <li><a href="courses-info.html">Courses Info</a></li>
+                                <li><a href="{{ route('news.index') }}">All News</a></li>
+                                <li><a href="{{ route('news.create') }}">Add News</a></li>
                             </ul>
                         </li>
-                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-notebook"></i><span>Library</span> </a>
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-notebook"></i><span>Gallery</span> </a>
                             <ul>
-                                <li><a href="add-library.html">Add Library</a></li>
-                                <li><a href="library.html">List Library</a></li>
+                                <li><a href="{{ route('album.create') }}">Add Album</a></li>
+                                <li><a href="{{ route('gallery.index') }}">All Image in Gallery</a></li>
+                                <li><a href="{{ route('gallery.create') }}">Add Image in Gallery</a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-share fa-rotate-90 d-inline-block"></i><span>Class</span> </a>

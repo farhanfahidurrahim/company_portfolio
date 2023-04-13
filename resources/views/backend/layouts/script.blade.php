@@ -6,4 +6,8 @@
 <script src="{{ asset('backend/assets/bundles/knob.bundle.js') }}"></script>
 <script src="{{ asset('backend/assets/bundles/mainscripts.bundle.js') }}"></script>
 <script src="{{ asset('backend/assets/js/pages/ui/sortable-nestable.js') }}"></script>
+<!-- Switch Button -->
+<script src="{{ asset('backend/assets/vendor/switch-button-bootstrap/src/bootstrap-switch-button.js') }}"></script>
 <script src="{{ asset('backend/assets/js/index.js') }}"></script>
+
+@yield('scripts')
