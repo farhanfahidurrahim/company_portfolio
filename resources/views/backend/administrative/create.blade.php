@@ -6,12 +6,12 @@
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12">
-                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Add New Testimonial</h2>
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Add New Administrative</h2>
                     </div>
                     <div class="col-lg-6 col-md-4 col-sm-12 text-right">
                         <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm">
                             <ul class="breadcrumb">
-                                <a href="{{ route('testimonial.index') }}" class="btn btn-info"><i class="icon-home"></i> All Testimonial List</a>
+                                <a href="{{ route('administrative.index') }}" class="btn btn-info"><i class="icon-home"></i> All Administrative List</a>
                             </ul>
                         </div>
                     </div>
@@ -33,13 +33,13 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="body">
-                        	<form action="{{ route('testimonial.store') }}" method="POST" enctype="multipart/form-data">
+                        	<form action="{{ route('administrative.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row clearfix">
 
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
-                                    	<label for="">Name</label>
+                                    	<label for="">Administrative Name</label>
                                         <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name">
                                     </div>
                                 </div>
@@ -48,13 +48,6 @@
                                     <div class="form-group">
                                     	<label for="">Designation</label>
                                         <input type="text" class="form-control" name="designation" value="{{ old('designation') }}" placeholder="Designation">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12 col-md-12">
-                                	<label for="">Description</label>
-                                    <div class="form-group">
-                                        <textarea id="description" class="form-control" name="description" placeholder="Write some text">{{ old('description') }}</textarea>
                                     </div>
                                 </div>
 
@@ -80,7 +73,7 @@
 
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-primary">Submit</button>
-                                    <a href="{{ route('testimonial.index') }}" class="btn btn-outline-secondary">Cancel</a>
+                                    <a href="{{ route('administrative.index') }}" class="btn btn-outline-secondary">Cancel</a>
                                 </div>
                             </div>
                             </form>
@@ -98,9 +91,4 @@
 	<script>
 		 $('#lfm').filemanager('image');
 	</script>
-	<script>
-	    $(document).ready(function() {
-	        $('#description').summernote();
-	    });
-	 </script>
 @endsection

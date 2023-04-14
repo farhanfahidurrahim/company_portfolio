@@ -55,7 +55,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::post('/testimonial-status',[App\Http\Controllers\Admin\TestimonialController::class,'newsStatus'])->name('testimonial.status');
 //Administrative Section
     Route::resource('/administrative',AdministrativeController::class);
-    Route::post('/administrative-status',[App\Http\Controllers\Admin\ContactController::class,'administrativeStatus'])->name('administrative.status');
+    Route::post('/administrative-status',[App\Http\Controllers\Admin\AdministrativeController::class,'administrativeStatus'])->name('administrative.status');
 //Client Section
     Route::resource('/client',ClientController::class);
     Route::post('/client-status',[App\Http\Controllers\Admin\ClientController::class,'clientStatus'])->name('client.status');

@@ -11,7 +11,7 @@ class Administrative extends Model
     protected $fillable = [
         'name',
         'designation',
-        'description',
+        'photo',
         'status',
     ];
 }

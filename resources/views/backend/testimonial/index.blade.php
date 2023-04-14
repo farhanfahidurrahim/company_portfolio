@@ -51,7 +51,7 @@
                                             <td>{{ $row->name }}</td>
                                             <td>{{ $row->designation }}</td>
                                             <td><img src="{{ $row->photo }}" style="max-height: 50px; max-width: 75px;" alt="news img"></td>
-                                            <td>{!! html_entity_decode($row->description) !!}</td>
+                                            <td>{{ Str::limit($row->description,50) }}</td>
                                             <td>
                                             	<input type="checkbox" name="toogle" value="{{ $row->id }}" data-toggle="switchbutton" {{$row->status=='active' ? 'checked' : ''}} data-onlabel="Active" data-offlabel="Inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">
                                             </td>

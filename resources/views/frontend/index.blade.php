@@ -292,6 +292,36 @@
       </div>
     </section><!-- End Our Clients Section -->
 
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+        <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Testimonials</h2>
+        </div>
+
+          <div class="row">
+
+            @foreach ($testimonial as $row)
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="testimonial-item mt-4">
+                    <img src="{{ $row->photo }}" class="testimonial-img" alt="testimonial img">
+                    <h3>{{ $row->name }}</h3>
+                    <h4>{{ $row->designation }}</h4>
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        {{ $row->description }}
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    </div>
+                </div>
+            @endforeach
+
+          </div>
+
+        </div>
+      </section><!-- End Testimonials Section -->
+
     <!-- ======= Our Team Section ======= -->
     <section id="team" class="team section-bg">
         <div class="container">
@@ -307,7 +337,7 @@
                 <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
                     <div class="member" data-aos="fade-up">
                     <div class="member-img">
-                        <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                        <img src="{{ asset( $row->photo ) }}" class="img-fluid" alt="administrative img">
                         <div class="social">
                         <a href=""><i class="bi bi-twitter"></i></a>
                         <a href=""><i class="bi bi-facebook"></i></a>
@@ -317,7 +347,7 @@
                     </div>
                     <div class="member-info">
                         <h4>{{ $row->name }}</h4>
-                        <span>Chief Executive Officer</span>
+                        <span>{{ $row->designation }}</span>
                     </div>
                     </div>
                 </div>

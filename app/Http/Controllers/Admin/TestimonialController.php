@@ -26,7 +26,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.testimonial.create');
     }
 
     /**
@@ -37,7 +37,22 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->all();
+        $request->validate([
+            'name'=>'required',
+            'photo'=>'required',
+            'designation'=>'required',
+            'status'=>'required',
+        ]);
+
+        $data=$request->all();
+        $store=Testimonial::create($data);
+        if ($store) {
+            return redirect()->route('testimonial.index')->with('success',"New Added Successfully");
+        }
+        else{
+            return redirect()->back()->with('error',"Please Try Again!");;
+        }
     }
 
     /**

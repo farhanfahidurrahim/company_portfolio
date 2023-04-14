@@ -18,7 +18,6 @@ class CreateAdministrativesTable extends Migration
             $table->string('name');
             $table->string('designation');
             $table->string('photo');
-            $table->string('description');
             $table->enum('status',['active','inactive'])->default('active');
             $table->timestamps();
         });
