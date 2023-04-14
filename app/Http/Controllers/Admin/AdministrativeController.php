@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
+use App\Models\Administrative;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class AdministrativeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $data=Contact::orderBy('id','DESC')->get();
-        return view('backend.contact.index',compact('data'));
+        $data=Administrative::orderBy('id','DESC')->get();
+        return view('backend.administrative.index',compact('data'));
     }
 
     /**

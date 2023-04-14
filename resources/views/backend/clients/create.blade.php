@@ -6,12 +6,12 @@
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12">
-                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Add New Banner</h2>
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Add New Client</h2>
                     </div>
                     <div class="col-lg-6 col-md-4 col-sm-12 text-right">
                         <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm">
                             <ul class="breadcrumb">
-                                <a href="{{ route('banner.index') }}" class="btn btn-info"><i class="icon-home"></i> All Banner List</a>
+                                <a href="{{ route('client.index') }}" class="btn btn-info"><i class="icon-home"></i> All Client List</a>
                             </ul>
                         </div>
                     </div>
@@ -33,33 +33,26 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="body">
-                        	<form action="{{ route('banner.store') }}" method="POST" enctype="multipart/form-data">
+                        	<form action="{{ route('client.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row clearfix">
 
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
-                                    	<label for="">Title</label>
-                                        <input type="text" class="form-control" name="title" value="{{ old('title') }}" placeholder="Title">
+                                    	<label for="">Client Name</label>
+                                        <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12 col-md-12">
-                                	<label for="">Image Upload</label>
+                                	<label for="">Logo Upload</label>
                                     <div class="input-group">
 										<span class="input-group-btn">
 											<a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary"><i class="fa fa-picture-o"></i> Choose </a>
 										</span>
-										<input id="thumbnail" class="form-control" type="text" name="photo">
+										<input id="thumbnail" class="form-control" type="text" name="logo">
 									</div>
 									<div id="holder" style="margin-top:15px;max-height:100px;"></div>
-                                </div>
-
-                                <div class="col-lg-12 col-md-12">
-                                	<label for="">Description</label>
-                                    <div class="form-group">
-                                        <textarea id="description" class="form-control" name="description" placeholder="Write some text">{{ old('description') }}</textarea>
-                                    </div>
                                 </div>
 
                                 <div class="col-lg-4 col-md-6 col-sm-12">
@@ -73,7 +66,7 @@
 
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-primary">Submit</button>
-                                    <a href="{{ route('banner.index') }}" class="btn btn-outline-secondary">Cancel</a>
+                                    <a href="{{ route('client.index') }}" class="btn btn-outline-secondary">Cancel</a>
                                 </div>
                             </div>
                             </form>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class AboutController extends Controller
 {
@@ -14,7 +16,21 @@ class AboutController extends Controller
      */
     public function index()
     {
-        //
+        $data=About::orderBy('id','DESC')->get();
+        return view('backend.about.index',compact('data'));
+    }
+
+    public function aboutStatus(Request $request)
+    {
+        //dd($request->all());
+        if ($request->mode=='true') {
+            DB::table('abouts')->where('id',$request->id)->update(['status'=>'active']);
+        }
+        else{
+            DB::table('abouts')->where('id',$request->id)->update(['status'=>'inactive']);
+        }
+
+        return response()->json(['msg'=>'Successfully Updated Status','status'=>true]);
     }
 
     /**
@@ -24,7 +40,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -57,7 +73,8 @@ class AboutController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data=About::FindOrFail($id);
+        return view('backend.about.edit',compact('data'));
     }
 
     /**
@@ -69,7 +86,24 @@ class AboutController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //return $request->all();
+        $id=About::FindorFail($id);
+        if ($id) {
+            $request->validate([
+                'title'=>'required',
+                'short_text'=>'required',
+                'description'=>'required',
+            ]);
+
+            $data=$request->all();
+            $update=$id->fill($data)->save();
+            if ($update) {
+                return redirect()->route('about.index')->with('success',"Updated successfully!");
+            }
+            else{
+                return redirect()->back()->with('error',"Try Again!");
+            }
+        }
     }
 
     /**

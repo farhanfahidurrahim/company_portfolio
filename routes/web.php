@@ -1,10 +1,15 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\AdministrativeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +39,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 //News Section
     Route::resource('/news',NewsController::class);
     Route::post('/news-status',[App\Http\Controllers\Admin\NewsController::class,'newsStatus'])->name('news.status');
-//News Section
+//Gallery Section
     Route::resource('/gallery',GalleryController::class);
     Route::post('/gallery-status',[App\Http\Controllers\Admin\GalleryController::class,'galleryStatus'])->name('gallery.status');
 
@@ -45,4 +50,19 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::post('/album-update/{id}',[App\Http\Controllers\Admin\GalleryController::class,'albumUpdate'])->name('album.update');
     Route::post('/album-destroy',[App\Http\Controllers\Admin\GalleryController::class,'albumDestroy'])->name('album.destroy');
     Route::post('/album-status',[App\Http\Controllers\Admin\GalleryController::class,'albumStatus'])->name('album.status');
+//Testimonial Section
+    Route::resource('/testimonial',TestimonialController::class);
+    Route::post('/testimonial-status',[App\Http\Controllers\Admin\TestimonialController::class,'newsStatus'])->name('testimonial.status');
+//Administrative Section
+    Route::resource('/administrative',AdministrativeController::class);
+    Route::post('/administrative-status',[App\Http\Controllers\Admin\ContactController::class,'administrativeStatus'])->name('administrative.status');
+//Client Section
+    Route::resource('/client',ClientController::class);
+    Route::post('/client-status',[App\Http\Controllers\Admin\ClientController::class,'clientStatus'])->name('client.status');
+//About Section
+    Route::resource('/about',AboutController::class);
+    // Route::post('/about-status',[App\Http\Controllers\Admin\AboutController::class,'aboutStatus'])->name('about.status');
+//Contact Section
+    Route::resource('/contact',ContactController::class);
 });
+

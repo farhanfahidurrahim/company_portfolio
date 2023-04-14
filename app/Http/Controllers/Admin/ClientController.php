@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class ClientController extends Controller
 {
@@ -14,7 +16,20 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $data=Client::orderBy('id','DESC')->get();
+        return view('backend.clients.index',compact('data'));
+    }
+    public function clientStatus(Request $request)
+    {
+        //dd($request->all());
+        if ($request->mode=='true') {
+            DB::table('clients')->where('id',$request->id)->update(['status'=>'active']);
+        }
+        else{
+            DB::table('clients')->where('id',$request->id)->update(['status'=>'inactive']);
+        }
+
+        return response()->json(['msg'=>'Successfully Updated Status','status'=>true]);
     }
 
     /**
@@ -24,7 +39,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.clients.create');
     }
 
     /**
@@ -35,7 +50,21 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->all();
+        $request->validate([
+            'name'=>'required',
+            'logo'=>'required',
+            'status'=>'required',
+        ]);
+
+        $data=$request->all();
+        $store=Client::create($data);
+        if ($store) {
+            return redirect()->route('client.index')->with('success',"New Added Successfully");
+        }
+        else{
+            return redirect()->back()->with('error',"Please Try Again!");;
+        }
     }
 
     /**

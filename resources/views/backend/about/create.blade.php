@@ -7,6 +7,11 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12">
                         <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Add New Banner</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href=""><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item">Banner</li>
+                            <li class="breadcrumb-item active">Add Banner</li>
+                        </ul>
                     </div>
                     <div class="col-lg-6 col-md-4 col-sm-12 text-right">
                         <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm">

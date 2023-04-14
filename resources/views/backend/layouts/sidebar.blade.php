@@ -41,24 +41,43 @@
                                 <li><a href="{{ route('gallery.create') }}">Add Image in Gallery</a></li>
                             </ul>
                         </li>
-                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-share fa-rotate-90 d-inline-block"></i><span>Class</span> </a>
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>Video</span> </a>
                             <ul>
-                                <li><a href="add-classroom.html">Add Class</a></li>
-                                <li><a href="classroom.html">List Class</a></li>
+                                <li><a href="">Payments</a></li>
+                                <li><a href="">Add Payment</a></li>
                             </ul>
                         </li>
-                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>Payments</span> </a>
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-info"></i><span>Testimonial</span> </a>
                             <ul>
-                                <li><a href="payments.html">Payments</a></li>
-                                <li><a href="payments-add.html">Add Payment</a></li>
-                                <li><a href="payments-invoice.html">Invoice</a></li>
+                                <li><a href="{{ route('testimonial.index') }}">All Testimonial</a></li>
+                                <li><a href="{{ route('testimonial.create') }}">Add Testimonial</a></li>
                             </ul>
                         </li>
-                        <li><a href="noticeboard.html"><i class="icon-info"></i>Noticeboard</a></li>
-                        <li><a href="app-taskboard.html"><i class="icon-list"></i>Taskboard</a></li>
-                        <li><a href="our-centres.html"><i class="icon-pin"></i>University Centres</a></li>
-                        <li><a href="hostel.html"><i class="icon-target"></i>Hostel</a></li>
-                        <li><a href="transport.html"><i class="icon-support"></i>Transport</a></li>
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-tag"></i><span>Administrative</span> </a>
+                            <ul>
+                                <li><a href="{{ route('administrative.index') }}">All Administrative</a></li>
+                                <li><a href="{{ route('administrative.create') }}">Add Administrative</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-list"></i><span>Clients</span> </a>
+                            <ul>
+                                <li><a href="{{ route('client.index') }}">All Clients</a></li>
+                                <li><a href="{{ route('client.create') }}">Add Clients</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-pin"></i><span>About-Us</span> </a>
+                            <ul>
+                                <li><a href="{{ route('about.index') }}">All About-Us</a></li>
+                                <li><a href="{{ route('about.create') }}">Add About-Us</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-target"></i><span>Contact-Us</span> </a>
+                            <ul>
+                                <li><a href="{{ route('contact.index') }}">All Contact</a></li>
+                                <li><a href="{{ route('contact.create') }}">Add Contact</a></li>
+                            </ul>
+                        </li>
+                        {{-- <li><a href="transport.html"><i class="icon-support"></i>Transport</a></li> --}}
                         <li><span>-- Extra</span></li>
                         <li>
                             <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>Authentication</span></a>
@@ -103,10 +122,6 @@
                             <a href="#Widgets" class="has-arrow"><i class="icon-puzzle"></i><span>Widgets</span></a>
                             <ul>
                                 <li><a href="widgets-statistics.html">Statistics Widgets</a></li>
-                                <li><a href="widgets-data.html">Data Widgets</a></li>
-                                <li><a href="widgets-chart.html">Chart Widgets</a></li>
-                                <li><a href="widgets-weather.html">Weather Widgets</a></li>
-                                <li><a href="widgets-social.html">Social Widgets</a></li>
                             </ul>
                         </li>
                         <li>
@@ -114,51 +129,18 @@
                             <ul>
                                 <li><a href="page-blank.html">Blank Page</a></li>
                                 <li><a href="page-gallery.html">Image Gallery <span class="badge badge-default float-right">v1</span></a> </li>
-                                <li><a href="page-gallery2.html">Image Gallery <span class="badge badge-warning float-right">v2</span></a> </li>
-                                <li><a href="page-timeline.html">Timeline</a></li>
-                                <li><a href="page-timeline-h.html">Horizontal Timeline</a></li>
-                                <li><a href="page-pricing.html">Pricing</a></li>
-                                <li><a href="page-invoices.html">Invoices</a></li>
-                                <li><a href="page-invoices2.html">Invoices <span class="badge badge-warning float-right">v2</span></a></li>
-                                <li><a href="page-search-results.html">Search Results</a></li>
-                                <li><a href="page-helper-class.html">Helper Classes</a></li>
-                                <li><a href="page-maintenance.html">Maintenance</a></li>
-                                <li><a href="page-testimonials.html">Testimonials</a></li>
-                                <li><a href="page-faq.html">FAQs</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#uiElements" class="has-arrow"><i class="icon-diamond"></i> <span>UI Elements</span></a>
                             <ul>
                                 <li><a href="ui-typography.html">Typography</a></li>
-                                <li><a href="ui-tabs.html">Tabs</a></li>
-                                <li><a href="ui-buttons.html">Buttons</a></li>
-                                <li><a href="ui-bootstrap.html">Bootstrap UI</a></li>
-                                <li><a href="ui-icons.html">Icons</a></li>
-                                <li><a href="ui-notifications.html">Notifications</a></li>
-                                <li><a href="ui-colors.html">Colors</a></li>
-                                <li><a href="ui-dialogs.html">Dialogs</a></li>
-                                <li><a href="ui-list-group.html">List Group</a></li>
-                                <li><a href="ui-media-object.html">Media Object</a></li>
-                                <li><a href="ui-modals.html">Modals</a></li>
-                                <li><a href="ui-nestable.html">Nestable</a></li>
-                                <li><a href="ui-progressbars.html">Progress Bars</a></li>
-                                <li><a href="ui-range-sliders.html">Range Sliders</a></li>
-                                <li><a href="ui-treeview.html">Treeview</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#forms" class="has-arrow"><i class="icon-pencil"></i> <span>Forms</span></a>
                             <ul>
                                 <li><a href="forms-validation.html">Form Validation</a></li>
-                                <li><a href="forms-advanced.html">Advanced Elements</a></li>
-                                <li><a href="forms-basic.html">Basic Elements</a></li>
-                                <li><a href="forms-wizard.html">Form Wizard</a></li>
-                                <li><a href="forms-dragdropupload.html">Drag &amp; Drop Upload</a></li>
-                                <li><a href="forms-cropping.html">Image Cropping</a></li>
-                                <li><a href="forms-summernote.html">Summernote</a></li>
-                                <li><a href="forms-editors.html">CKEditor</a></li>
-                                <li><a href="forms-markdown.html">Markdown</a></li>
                             </ul>
                         </li>
                         <li>
@@ -196,75 +178,6 @@
                         </li>
                     </ul>
                 </nav>
-            </div>
-            <div class="tab-pane p-l-15 p-r-15" id="setting">
-                <h6>Choose Skin</h6>
-                <ul class="choose-skin list-unstyled">
-                    <li data-theme="purple">
-                        <div class="purple"></div>
-                        <span>Purple</span>
-                    </li>
-                    <li data-theme="blue" class="active">
-                        <div class="blue"></div>
-                        <span>Blue</span>
-                    </li>
-                    <li data-theme="cyan">
-                        <div class="cyan"></div>
-                        <span>Cyan</span>
-                    </li>
-                    <li data-theme="green">
-                        <div class="green"></div>
-                        <span>Green</span>
-                    </li>
-                    <li data-theme="orange">
-                        <div class="orange"></div>
-                        <span>Orange</span>
-                    </li>
-                    <li data-theme="blush">
-                        <div class="blush"></div>
-                        <span>Blush</span>
-                    </li>
-                </ul>
-                <hr>
-                <h6>General Settings</h6>
-                <ul class="setting-list list-unstyled">
-                    <li>
-                        <label class="fancy-checkbox">
-                            <input type="checkbox" name="checkbox">
-                            <span>Report Panel Usag</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="fancy-checkbox">
-                            <input type="checkbox" name="checkbox">
-                            <span>Email Redirect</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="fancy-checkbox">
-                            <input type="checkbox" name="checkbox" checked>
-                            <span>Notifications</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="fancy-checkbox">
-                            <input type="checkbox" name="checkbox" checked>
-                            <span>Auto Updates</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="fancy-checkbox">
-                            <input type="checkbox" name="checkbox">
-                            <span>Offline</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="fancy-checkbox">
-                            <input type="checkbox" name="checkbox" checked>
-                            <span>Location Permission</span>
-                        </label>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
