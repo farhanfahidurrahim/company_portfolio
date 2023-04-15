@@ -14,4 +14,9 @@ class GalleryImage extends Model
         'slug',
         'photo',
     ];
+
+    public function albumName()
+    {
+        return $this->belongsTo(GalleryAlbum::class,'album_id');
+    }
 }

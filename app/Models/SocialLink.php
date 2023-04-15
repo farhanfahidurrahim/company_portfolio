@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Contact extends Model
+class SocialLink extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'address',
-        'email',
-        'phone_one',
-        'phone_two',
+        'facebook',
+        'instgram',
+        'twitter',
+        'linkedin',
     ];
 }

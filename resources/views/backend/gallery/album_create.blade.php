@@ -11,7 +11,7 @@
                     <div class="col-lg-6 col-md-4 col-sm-12 text-right">
                         <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm">
                             <ul class="breadcrumb">
-                                <a href="{{ route('album.index') }}" class="btn btn-info"><i class="icon-home"></i> All News List</a>
+                                <a href="{{ route('album.index') }}" class="btn btn-info"><i class="icon-home"></i> All Album List</a>
                             </ul>
                         </div>
                     </div>

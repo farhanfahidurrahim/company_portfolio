@@ -44,6 +44,16 @@
                                     </div>
                                 </div>
 
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                	<label for="">Album Category</label>
+                                    <select class="form-control show-tick" name="album_id">
+                                        <option selected disabled value="">-- Choose Album --</option>
+                                        @foreach ($album as $row)
+                                            <option value="{{ $row->id }}">{{ $row->title }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
                                 <div class="col-lg-12 col-md-12">
                                 	<label for="">Image Upload</label>
                                     <div class="input-group">
@@ -53,16 +63,6 @@
 										<input id="thumbnail" class="form-control" type="text" name="photo">
 									</div>
 									<div id="holder" style="margin-top:15px;max-height:100px;"></div>
-                                </div>
-
-                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                	<label for="">Album Category</label>
-                                    <select class="form-control show-tick" name="album_id">
-                                        <option selected disabled value="">-- Choose Album --</option>
-                                        @foreach ($album as $row)
-                                            <option value="{{ $row->id }}">{{ $row->title }}</option>
-                                        @endforeach
-                                    </select>
                                 </div>
 
                                 <div class="col-lg-4 col-md-6 col-sm-12">

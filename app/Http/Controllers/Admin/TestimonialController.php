@@ -15,7 +15,7 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $data=Testimonial::orderBy('id','DESC')->get();
+        $data=Testimonial::where('status','active')->orderBy('id','DESC')->get();
         return view('backend.testimonial.index',compact('data'));
     }
 

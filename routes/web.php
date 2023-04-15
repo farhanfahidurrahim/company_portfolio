@@ -1,15 +1,18 @@
 <?php
 
-use App\Http\Controllers\Admin\AboutController;
-use App\Http\Controllers\Admin\AdministrativeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Frontend\NewsBlogController;
+use App\Http\Controllers\Admin\AdministrativeController;
+use App\Http\Controllers\Admin\SocialLinkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +27,10 @@ use App\Http\Controllers\Admin\TestimonialController;
 
 // <================ Frontend Part ============>
 Route::get('/', [App\Http\Controllers\Frontend\IndexController::class, 'home'])->name('home');
+// Route::get('/about', [IndexController::class, 'about'])->name('frontend.about');
+Route::get('/contact', [IndexController::class, 'contact'])->name('frontend.contact');
+Route::post('/contact-meesage-store', [IndexController::class, 'contactMessageStore'])->name('contact.message.store');
+Route::get('/news-blog', [NewsBlogController::class, 'newsBlog'])->name('news.blog');
 
 Auth::routes(['register'=>false]);
 
@@ -64,5 +71,11 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     // Route::post('/about-status',[App\Http\Controllers\Admin\AboutController::class,'aboutStatus'])->name('about.status');
 //Contact Section
     Route::resource('/contact',ContactController::class);
+    Route::get('/contact-message', [ContactController::class, 'contactMessage'])->name('contact.message');
+    Route::get('/contact-message-destroy', [ContactController::class, 'contactMessageDestroy'])->name('contact.message.destroy');
+//Social Section
+    Route::get('/social-link', [SocialLinkController::class, 'socialLink'])->name('social.link');
+    Route::post('/social-link-store', [SocialLinkController::class, 'socialLinkStore'])->name('social.link.store');
+    Route::post('/social-link-update', [SocialLinkController::class, 'socialLinkStore'])->name('social.link.update');
 });
 

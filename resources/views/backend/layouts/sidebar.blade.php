@@ -73,10 +73,11 @@
                         </li>
                         <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-target"></i><span>Contact-Us</span> </a>
                             <ul>
-                                <li><a href="{{ route('contact.index') }}">All Contact</a></li>
-                                <li><a href="{{ route('contact.create') }}">Add Contact</a></li>
+                                <li><a href="{{ route('contact.message') }}">All Contact Meassge</a></li>
+                                <li><a href="{{ route('contact.index') }}">Contact Information</a></li>
                             </ul>
                         </li>
+                        <li><a href="{{ route('social.link') }}"><i class="icon-bubbles"></i><span>Social Link</span></a></li>
                         {{-- <li><a href="transport.html"><i class="icon-support"></i>Transport</a></li> --}}
                         <li><span>-- Extra</span></li>
                         <li>

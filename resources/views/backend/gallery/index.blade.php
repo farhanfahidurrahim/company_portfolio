@@ -38,6 +38,7 @@
                                             <th>No.</th>
                                             <th>Title</th>
                                             <th>Photo</th>
+                                            <th>Album Name</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -48,6 +49,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $row->title }}</td>
                                             <td><img src="{{ $row->photo }}" style="max-height: 50px; max-width: 75px;" alt="news img"></td>
+                                            <td>{{ $row->albumName->title }}</td>
                                             <td>
                                             	<input type="checkbox" name="toogle" value="{{ $row->id }}" data-toggle="switchbutton" {{$row->status=='active' ? 'checked' : ''}} data-onlabel="Active" data-offlabel="Inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">
                                             </td>

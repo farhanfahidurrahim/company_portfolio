@@ -70,7 +70,7 @@
     </section><!-- End About Us Section -->
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
+    {{-- <section id="services" class="services section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="row">
@@ -155,7 +155,7 @@
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section><!-- End Services Section --> --}}
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
