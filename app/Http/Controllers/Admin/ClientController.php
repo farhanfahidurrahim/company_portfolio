@@ -86,7 +86,8 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data=Client::FindorFail($id);
+        return view('backend.clients.edit',compact('data'));
     }
 
     /**
@@ -98,7 +99,23 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //return $request->all();
+        $id=Client::FindorFail($id);
+        if ($id) {
+            $request->validate([
+                'name'=>'required',
+                'logo'=>'required',
+            ]);
+
+            $data=$request->all();
+            $update=$id->fill($data)->save();
+            if ($update) {
+                return redirect()->route('client.index')->with('success',"Updated successfully!");
+            }
+            else{
+                return redirect()->back()->with('error',"Try Again!");
+            }
+        }
     }
 
     /**
@@ -109,6 +126,18 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id=Client::FindorFail($id);
+        if ($id) {
+            $data=$id->delete();
+            if ($data) {
+                return redirect()->route('client.index')->with('success',"Deleted successfully!");
+            }
+            else{
+                return redirect()->back()->with('error',"Please Try Again!");;
+            }
+        }
+        else{
+            return redirect()->back()->with('error',"Data Not Found!");;
+        }
     }
 }

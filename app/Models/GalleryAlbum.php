@@ -10,6 +10,7 @@ class GalleryAlbum extends Model
     use HasFactory;
     protected $fillable = [
         'title',
+        'thumbnail',
         'slug',
     ];
 }

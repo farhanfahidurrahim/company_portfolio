@@ -58,7 +58,7 @@
 
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-primary">Update</button>
-                                    <a href="{{ route('news.index') }}" class="btn btn-outline-secondary">Cancel</a>
+                                    <a href="{{ route('gallery.index') }}" class="btn btn-outline-secondary">Cancel</a>
                                 </div>
                             </div>
                             </form>

@@ -2,7 +2,8 @@
 @section('content')
 
     <div id="main-content">
-        <div class="container-fluid">
+
+        {{-- <div class="container-fluid">
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12">
@@ -68,7 +69,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="container-fluid">
             <div class="block-header">
@@ -109,12 +110,12 @@
                                             <td class="">
                                             	<a href="{{ route('contact.edit',$row->id) }}" data-toggle="tooltip" title="Edit" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></a>
 
-                                            	<form class="px-3" onclick="return confirm('Are you sure you want to delete?')" method="POST"
+                                            	{{-- <form class="px-3" onclick="return confirm('Are you sure you want to delete?')" method="POST"
                                                 action="{{ route('contact.destroy', $row->id) }}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-sm btn-outline-danger" title="Delete"><i class="fas fa-trash"></i></button>
-                                                </form>
+                                                </form> --}}
                                             </td>
                                         </tr>
                                         @endforeach

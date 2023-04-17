@@ -44,6 +44,17 @@
                                     </div>
                                 </div>
 
+                                <div class="col-lg-12 col-md-12">
+                                	<label for="">Thumnbail Edit</label>
+                                    <div class="input-group">
+										<span class="input-group-btn">
+											<a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary"><i class="fa fa-picture-o"></i> Choose </a>
+										</span>
+										<input id="thumbnail" class="form-control" type="text" name="thumbnail" value="{{ $data->thumbnail }}">
+									</div>
+									<div id="holder" style="margin-top:15px;max-height:100px;"></div>
+                                </div>
+
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-primary">Update</button>
                                     <a href="{{ route('album.index') }}" class="btn btn-outline-secondary">Cancel</a>

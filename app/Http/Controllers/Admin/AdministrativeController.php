@@ -88,7 +88,8 @@ class AdministrativeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data=Administrative::FindorFail($id);
+        return view('backend.administrative.edit',compact('data'));
     }
 
     /**
@@ -100,7 +101,24 @@ class AdministrativeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //return $request->all();
+        $id=Administrative::FindorFail($id);
+        if ($id) {
+            $request->validate([
+                'name'=>'required',
+                'designation'=>'required',
+                'photo'=>'required',
+            ]);
+
+            $data=$request->all();
+            $update=$id->fill($data)->save();
+            if ($update) {
+                return redirect()->route('administrative.index')->with('success',"Updated successfully!");
+            }
+            else{
+                return redirect()->back()->with('error',"Try Again!");
+            }
+        }
     }
 
     /**
@@ -111,6 +129,18 @@ class AdministrativeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id=Administrative::FindorFail($id);
+        if ($id) {
+            $data=$id->delete();
+            if ($data) {
+                return redirect()->route('administrative.index')->with('success',"Deleted successfully!");
+            }
+            else{
+                return redirect()->back()->with('error',"Please Try Again!");;
+            }
+        }
+        else{
+            return redirect()->back()->with('error',"Data Not Found!");;
+        }
     }
 }

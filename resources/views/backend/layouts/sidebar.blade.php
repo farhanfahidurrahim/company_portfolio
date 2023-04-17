@@ -6,11 +6,18 @@
                 <span>Welcome,</span>
                 <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>{{ Auth::user()->name }}</strong></a>
                 <ul class="dropdown-menu dropdown-menu-right account">
-                    <li><a href="professors-profile.html"><i class="icon-user"></i>My Profile</a></li>
-                    <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
-                    <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
+                    <li><a href="{{ route('admin.profile.edit') }}"><i class="icon-user"></i>My Profile</a></li>
+                    {{-- <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
+                    <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li> --}}
                     <li class="divider"></li>
-                    <li><a href="page-login.html"><i class="icon-power"></i>Logout</a></li>
+                    <li>
+                        <a href="{{ route('logout') }}"onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        <i class="icon-power"></i>Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
                 </ul>
             </div>
             <hr>
@@ -43,8 +50,8 @@
                         </li>
                         <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>Video</span> </a>
                             <ul>
-                                <li><a href="">Payments</a></li>
-                                <li><a href="">Add Payment</a></li>
+                                <li><a href="{{ route('video.create') }}">Add Video</a></li>
+                                <li><a href="{{ route('video.index') }}">All Video</a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-info"></i><span>Testimonial</span> </a>
@@ -77,22 +84,8 @@
                                 <li><a href="{{ route('contact.index') }}">Contact Information</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('social.link') }}"><i class="icon-bubbles"></i><span>Social Link</span></a></li>
+                        <li><a href="{{ route('social-link.index') }}"><i class="icon-bubbles"></i><span>Social Link</span></a></li>
                         {{-- <li><a href="transport.html"><i class="icon-support"></i>Transport</a></li> --}}
-                        <li><span>-- Extra</span></li>
-                        <li>
-                            <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>Authentication</span></a>
-                            <ul>
-                                <li><a href="page-login.html">Login</a></li>
-                                <li><a href="page-register.html">Register</a></li>
-                                <li><a href="page-lockscreen.html">Lockscreen</a></li>
-                                <li><a href="page-forgot-password.html">Forgot Password</a></li>
-                                <li><a href="page-404.html">Page 404</a></li>
-                                <li><a href="page-403.html">Page 403</a></li>
-                                <li><a href="page-500.html">Page 500</a></li>
-                                <li><a href="page-503.html">Page 503</a></li>
-                            </ul>
-                        </li>
                     </ul>
                 </nav>
             </div>

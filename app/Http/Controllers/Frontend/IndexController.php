@@ -7,10 +7,15 @@ use App\Models\Banner;
 use App\Models\Client;
 use App\Models\Contact;
 use App\Models\Testimonial;
+use App\Models\GalleryAlbum;
+use App\Models\GalleryImage;
 use Illuminate\Http\Request;
 use App\Models\Administrative;
-use App\Http\Controllers\Controller;
 use App\Models\ContactMessage;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Models\SocialLink;
+use App\Models\Video;
 
 class IndexController extends Controller
 {
@@ -18,11 +23,14 @@ class IndexController extends Controller
     {
         $banner=Banner::where('status','active')->orderBy('id','DESC')->get();
         $about=About::orderBy('id','DESC')->first();
+        $albums=GalleryAlbum::where('status','active')->orderBy('id','DESC')->limit(4)->get();
+        $videos=Video::where('status','active')->orderBy('id','DESC')->limit(2)->get();
+        $gallery=GalleryImage::all();
         $client=Client::where('status','active')->orderBy('id','DESC')->limit(8)->get();
-        $testimonial=Testimonial::where('status','active')->orderBy('id','DESC')->limit(8)->get();
-        $administrative=Administrative::where('status','active')->orderBy('id','DESC')->limit(6)->get();
+        $testimonial=Testimonial::where('status','active')->orderBy('id','DESC')->limit(4)->get();
+        $administrative=Administrative::where('status','active')->orderBy('id','DESC')->limit(4)->get();
 
-        return view('frontend.index',compact('banner','about','client','testimonial','administrative'));
+        return view('frontend.index',compact('banner','about','client','testimonial','administrative','albums','gallery','videos',));
     }
 
     public function contact()

@@ -30,8 +30,9 @@
                                     <tr>
                                         <th>No.</th>
                                         <th>Name</th>
-                                        <th>Email</th>
+                                        <th>Subject</th>
                                         <th>Message</th>
+                                        <th>Email</th>
                                         <th>Phone(Optional)</th>
                                         <th>Action</th>
                                     </tr>
@@ -41,8 +42,9 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $row->name }}</td>
-                                        <td>{{ $row->email }}</td>
+                                        <td>{{ $row->subject }}</td>
                                         <td>{!! html_entity_decode($row->message) !!}</td>
+                                        <td>{{ $row->email }}</td>
                                         <td>{{ $row->phone }}</td>
                                         <td class="">
                                             <form class="px-3" onclick="return confirm('Are you sure you want to delete?')" method="POST"

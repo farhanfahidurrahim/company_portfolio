@@ -45,6 +45,7 @@ class GalleryController extends Controller
         //return $request->all();
         $request->validate([
             'title'=>'required',
+            'thumbnail'=>'required',
             'status'=>'required',
         ]);
 
@@ -90,6 +91,23 @@ class GalleryController extends Controller
         }
 
         return view('backend.gallery.album_create');
+    }
+
+    public function albumDestroy($id)
+    {
+        $id=GalleryAlbum::FindorFail($id);
+        if ($id) {
+            $data=$id->delete();
+            if ($data) {
+                return redirect()->route('album.index')->with('success',"Deleted successfully!");
+            }
+            else{
+                return redirect()->back()->with('error',"Please Try Again!");;
+            }
+        }
+        else{
+            return redirect()->back()->with('error',"Data Not Found!");;
+        }
     }
 
     public function index()
@@ -193,6 +211,18 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id=GalleryImage::FindorFail($id);
+        if ($id) {
+            $data=$id->delete();
+            if ($data) {
+                return redirect()->route('gallery.index')->with('success',"Deleted successfully!");
+            }
+            else{
+                return redirect()->back()->with('error',"Please Try Again!");;
+            }
+        }
+        else{
+            return redirect()->back()->with('error',"Data Not Found!");;
+        }
     }
 }

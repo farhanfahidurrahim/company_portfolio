@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jvectormap/jquery-jvectormap-2.0.3.min.css') }}"/>
 <link rel="stylesheet" href="{{ asset('backend/assets/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('backend/assets/vendor/morrisjs/morris.min.css') }}" />
+<!-- Data Table -->
+<link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css') }}" />
 <!-- Switch Button -->
 <link rel="stylesheet" href="{{ asset('backend/assets/vendor/switch-button-bootstrap/css/bootstrap-switch-button.min.css') }}" />
 

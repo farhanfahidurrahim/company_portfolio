@@ -37,6 +37,7 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Title</th>
+                                            <th>Thumbnail</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -46,6 +47,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $row->title }}</td>
+                                            <td><img src="{{ $row->thumbnail }}" style="max-height: 50px; max-width: 75px;" alt="album img"></td>
                                             <td>
                                             	<input type="checkbox" name="toogle" value="{{ $row->id }}" data-toggle="switchbutton" {{$row->status=='active' ? 'checked' : ''}} data-onlabel="Active" data-offlabel="Inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">
                                             </td>
@@ -54,7 +56,6 @@
 
                                             	<form class="px-3" onclick="return confirm('Are you sure you want to delete?')" method="POST" action="{{ route('album.destroy', $row->id) }}">
                                                     @csrf
-                                                    @method('DELETE')
                                                     <button class="btn btn-sm btn-outline-danger" title="Delete"><i class="fas fa-trash"></i></button>
                                                 </form>
                                             </td>

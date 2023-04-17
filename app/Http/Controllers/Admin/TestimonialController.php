@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class TestimonialController extends Controller
 {
@@ -15,8 +16,21 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $data=Testimonial::where('status','active')->orderBy('id','DESC')->get();
+        $data=Testimonial::orderBy('id','DESC')->get();
         return view('backend.testimonial.index',compact('data'));
+    }
+
+    public function testimonialStatus(Request $request)
+    {
+        //dd($request->all());
+        if ($request->mode=='true') {
+            DB::table('testimonials')->where('id',$request->id)->update(['status'=>'active']);
+        }
+        else{
+            DB::table('testimonials')->where('id',$request->id)->update(['status'=>'inactive']);
+        }
+
+        return response()->json(['msg'=>'Successfully Updated Status','status'=>true]);
     }
 
     /**
@@ -74,7 +88,8 @@ class TestimonialController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data=Testimonial::FindorFail($id);
+        return view('backend.testimonial.edit',compact('data'));
     }
 
     /**
@@ -86,9 +101,25 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        //return $request->all();
+        $id=Testimonial::FindorFail($id);
+        if ($id) {
+            $request->validate([
+                'name'=>'required',
+                'designation'=>'required',
+                'photo'=>'required',
+            ]);
 
+            $data=$request->all();
+            $update=$id->fill($data)->save();
+            if ($update) {
+                return redirect()->route('testimonial.index')->with('success',"Updated successfully!");
+            }
+            else{
+                return redirect()->back()->with('error',"Try Again!");
+            }
+        }
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -97,6 +128,18 @@ class TestimonialController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id=Testimonial::FindorFail($id);
+        if ($id) {
+            $data=$id->delete();
+            if ($data) {
+                return redirect()->route('testimonial.index')->with('success',"Deleted successfully!");
+            }
+            else{
+                return redirect()->back()->with('error',"Please Try Again!");;
+            }
+        }
+        else{
+            return redirect()->back()->with('error',"Data Not Found!");;
+        }
     }
 }

@@ -16,7 +16,7 @@ class CreateSocialLinksTable extends Migration
         Schema::create('social_links', function (Blueprint $table) {
             $table->id();
             $table->string('facebook')->nullable();
-            $table->string('instgram')->nullable();
+            $table->string('instagram')->nullable();
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();
             $table->timestamps();

@@ -10,7 +10,7 @@ class SocialLink extends Model
     use HasFactory;
     protected $fillable = [
         'facebook',
-        'instgram',
+        'instagram',
         'twitter',
         'linkedin',
     ];

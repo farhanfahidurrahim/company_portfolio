@@ -9,10 +9,11 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Frontend\NewsBlogController;
 use App\Http\Controllers\Admin\AdministrativeController;
-use App\Http\Controllers\Admin\SocialLinkController;
+use App\Http\Controllers\Admin\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +28,15 @@ use App\Http\Controllers\Admin\SocialLinkController;
 
 // <================ Frontend Part ============>
 Route::get('/', [App\Http\Controllers\Frontend\IndexController::class, 'home'])->name('home');
-// Route::get('/about', [IndexController::class, 'about'])->name('frontend.about');
-Route::get('/contact', [IndexController::class, 'contact'])->name('frontend.contact');
-Route::post('/contact-meesage-store', [IndexController::class, 'contactMessageStore'])->name('contact.message.store');
-Route::get('/news-blog', [NewsBlogController::class, 'newsBlog'])->name('news.blog');
+
+Route::get('/gallery', [App\Http\Controllers\Frontend\GalleryController::class, 'gallery'])->name('nav.gallery');
+Route::get('/album-image/{id}', [App\Http\Controllers\Frontend\GalleryController::class, 'albumImage'])->name('album.image');
+Route::get('/get-album/{id}', [App\Http\Controllers\Frontend\GalleryController::class, 'getAlbum'])->name('get.album');
+
+Route::get('/contact', [IndexController::class, 'contact'])->name('nav.contact');
+Route::post('/contact-message-store', [IndexController::class, 'contactMessageStore'])->name('contact.message.store');
+
+Route::get('/news-blog', [NewsBlogController::class, 'newsBlog'])->name('nav.news');
 
 Auth::routes(['register'=>false]);
 
@@ -40,6 +46,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::get('/',[App\Http\Controllers\Admin\AdminController::class,'admin'])->name('admin');
+    Route::get('/profile-edit',[App\Http\Controllers\Admin\AdminController::class,'adminProfileEdit'])->name('admin.profile.edit');
+    Route::post('/profile-update/{id}',[App\Http\Controllers\Admin\AdminController::class,'adminProfileUpdate'])->name('admin.profile.update');
 //Banner Section
     Route::resource('/banner',BannerController::class);
     Route::post('/banner-status',[App\Http\Controllers\Admin\BannerController::class,'bannerStatus'])->name('banner.status');
@@ -55,11 +63,14 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::post('/album-store',[App\Http\Controllers\Admin\GalleryController::class,'albumStore'])->name('album.store');
     Route::get('/album-edit/{id}',[App\Http\Controllers\Admin\GalleryController::class,'albumEdit'])->name('album.edit');
     Route::post('/album-update/{id}',[App\Http\Controllers\Admin\GalleryController::class,'albumUpdate'])->name('album.update');
-    Route::post('/album-destroy',[App\Http\Controllers\Admin\GalleryController::class,'albumDestroy'])->name('album.destroy');
+    Route::post('/album-destroy/{id}',[App\Http\Controllers\Admin\GalleryController::class,'albumDestroy'])->name('album.destroy');
     Route::post('/album-status',[App\Http\Controllers\Admin\GalleryController::class,'albumStatus'])->name('album.status');
+//Video Section
+    Route::resource('/video',VideoController::class);
+    Route::post('/video-status',[App\Http\Controllers\Admin\VideoController::class,'videoStatus'])->name('video.status');
 //Testimonial Section
     Route::resource('/testimonial',TestimonialController::class);
-    Route::post('/testimonial-status',[App\Http\Controllers\Admin\TestimonialController::class,'newsStatus'])->name('testimonial.status');
+    Route::post('/testimonial-status',[App\Http\Controllers\Admin\TestimonialController::class,'testimonialStatus'])->name('testimonial.status');
 //Administrative Section
     Route::resource('/administrative',AdministrativeController::class);
     Route::post('/administrative-status',[App\Http\Controllers\Admin\AdministrativeController::class,'administrativeStatus'])->name('administrative.status');
@@ -72,10 +83,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 //Contact Section
     Route::resource('/contact',ContactController::class);
     Route::get('/contact-message', [ContactController::class, 'contactMessage'])->name('contact.message');
-    Route::get('/contact-message-destroy', [ContactController::class, 'contactMessageDestroy'])->name('contact.message.destroy');
+    Route::DELETE('/contact-message-destroy/{id}', [ContactController::class, 'contactMessageDestroy'])->name('contact.message.destroy');
 //Social Section
-    Route::get('/social-link', [SocialLinkController::class, 'socialLink'])->name('social.link');
-    Route::post('/social-link-store', [SocialLinkController::class, 'socialLinkStore'])->name('social.link.store');
-    Route::post('/social-link-update', [SocialLinkController::class, 'socialLinkStore'])->name('social.link.update');
+    Route::resource('/social-link',SocialLinkController::class);
 });
 

@@ -20,6 +20,23 @@ class ContactController extends Controller
         return view('backend.contact.message',compact('data'));
     }
 
+    public function contactMessageDestroy($id)
+    {
+        $id=ContactMessage::FindorFail($id);
+        if ($id) {
+            $data=$id->delete();
+            if ($data) {
+                return redirect()->route('contact.message')->with('success',"Deleted successfully!");
+            }
+            else{
+                return redirect()->back()->with('error',"Please Try Again!");;
+            }
+        }
+        else{
+            return redirect()->back()->with('error',"Data Not Found!");;
+        }
+    }
+
     public function index()
     {
         $data=Contact::orderBy('id','DESC')->get();
@@ -48,7 +65,6 @@ class ContactController extends Controller
         $request->validate([
             'address'=>'required',
             'phone_one'=>'required|numeric',
-            'phone_two'=>'required|numeric',
             'email'=>'required|email',
         ]);
 
@@ -100,7 +116,6 @@ class ContactController extends Controller
             $request->validate([
             'address'=>'required',
             'phone_one'=>'required|numeric',
-            'phone_two'=>'required|numeric',
             'email'=>'required|email',
             ]);
 
